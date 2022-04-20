@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
-const PORT = 5050;
+const PORT = 5052;
 require("dotenv").config();
 
 app.use(cors());
@@ -17,6 +17,7 @@ mongoose.connect(
     console.log("connected to mongodb");
   }
 );
+app.use("/calculate", require("./routes/calculatorRoute"));
 
 app.use("/api", require("./routes/api-routes"));
 
